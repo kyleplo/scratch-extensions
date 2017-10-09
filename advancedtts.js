@@ -35,7 +35,7 @@
             ['r', 'result', 'result']
         ],
       menus: {speechThing: ["lang","volume","pitch","voice","rate"],voiceThing: ["name","lang"],speechThingB: ["lang","volume","pitch","rate"],preset: ["robot","whisper","mouse","highbot","fast","slow","deep","high"]},
-      url: "http://kyleplogames.com/js/advancedtts.html"
+      url: "https://github.com/kyleplo/scratch-extensions/wiki/Advanced-Text-to-Speech"
     };
 
     // Register the extension
