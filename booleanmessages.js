@@ -6,7 +6,7 @@
     // Status reporting code
     // Use this to report missing hardware, plugin or unsupported browser
     ext._getStatus = function() {
-        return {status: 2, msg: "It works!"};};
+        return {status: 2, msg: "It works!"};
     };
     ext.when = function(b) {
     if(bool === b){return false}else{var o = b;bool = b;return o;}
