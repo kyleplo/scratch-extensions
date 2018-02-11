@@ -9,13 +9,13 @@
         return {status: 2, msg: 'Ready'};
     };
     ext.shorten = function (url){
-    fetch('https://is.gd/create.php?format=simple&url=' + url + (title.length > 0 ? "&shortUrl=" + title : "")).then(function(response) {
+    fetch('http://is.gd/create.php?format=simple&url=' + url + (title.length > 0 ? "&shortUrl=" + title : "")).then(function(response) {
   return response.text();
 }).then(function(text) {
   shortUrl = text
 });};
 ext.long = function (url,call){
-    fetch('https://is.gd/forward.php?format=simple&shortUrl=' + url).then(function(response) {
+    fetch('http://is.gd/forward.php?format=simple&shortUrl=' + url).then(function(response) {
   return response.text();
 }).then(function(text) {
   call(text)
