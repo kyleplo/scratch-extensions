@@ -27,7 +27,7 @@ function exitFullscreen() {
     // Status reporting code
     // Use this to report missing hardware, plugin or unsupported browser
     ext._getStatus = function() {if(document.fullscreenEnabled || document.mozFullScreenEnabled || document.webkitFullscreenEnabled){
-        return {status: 2, msg: "It works!"}}else{return {status: 0, msg: "Upgrade to a newer browser!"}}};
+        return {status: 2, msg: "It works!"}}else{return {status: 0, msg: "Upgrade to a newer browser!"}};
     };
     ext.enter = function (){
     fullscreen = "stage"
