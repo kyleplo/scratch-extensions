@@ -12,7 +12,7 @@ var arrived = false;
 return {status: 2, msg: "Extension Forecast: Working! (lol)"}
     };
 ext.setzip = function (z){zip = z};
-ext.request = function (){fetch("api.openweathermap.org/data/2.5/weather?zip=" + zip + ",us&appid=" + api).then(function (j){return j.json()}).then(function (j){data = j;arrived = true}).catch(function (e){alert("Error fetching weather: " + e)})};
+ext.request = function (){fetch("http://api.openweathermap.org/data/2.5/weather?zip=" + zip + ",us&appid=" + api).then(function (j){return j.json()}).then(function (j){data = j;arrived = true}).catch(function (e){alert("Error fetching weather: " + e)})};
 ext.when = function (){if(arrived){arrived = false;return true}else{return false};};
 ext.summary = function (){return data.weather[0].main};
 ext.desc = function (){return data.weather[0].description};
