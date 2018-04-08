@@ -1,6 +1,6 @@
 (function(ext) {
 var api = "aab139c61fbf24b217e91606a398a3df";
-var zip = 02203;
+var zip = "02203";
 var data = {"weather":[{"main":"Unknown","description":"Loading or error"}],"main":{"temp":0,"humidity":0},"wind":{"speed":0},"clouds":{"all":0}};
 var arrived = false;
     // Cleanup function when the extension is unloaded
@@ -11,7 +11,7 @@ var arrived = false;
     ext._getStatus = function() {
 return {status: 2, msg: "Extension Forecast: Working! (lol)"}
     };
-ext.setzip = function (z){zip = z};
+ext.setzip = function (z){zip = z.toString()};
 ext.request = function (){fetch("http://api.openweathermap.org/data/2.5/weather?zip=" + zip + ",us&appid=" + api).then(function (j){return j.json()}).then(function (j){data = j;arrived = true}).catch(function (e){alert("Error fetching weather: " + e)})};
 ext.when = function (){if(arrived){arrived = false;return true}else{return false};};
 ext.summary = function (){return data.weather[0].main};
