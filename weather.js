@@ -11,7 +11,7 @@ var arrived = false;
     ext._getStatus = function() {
 return {status: 2, msg: "Extension Forecast: Working! (lol)"}
     };
-ext.setzip = function (z){zip = z.toString()};
+ext.setzip = function (z){zip = z};
 ext.request = function (){fetch("http://api.openweathermap.org/data/2.5/weather?zip=" + zip + ",us&appid=" + api).then(function (j){return j.json()}).then(function (j){data = j;arrived = true}).catch(function (e){alert("Error fetching weather: " + e)})};
 ext.when = function (){if(arrived){arrived = false;return true}else{return false};};
 ext.summary = function (){return data.weather[0].main};
@@ -46,11 +46,15 @@ return "very fast"
 };
 };
 ext.clouds = function (){return data.clouds.all};
+ext.getzip = function (call){
+fetch("http://ipinfo.io/json").then(function (j){return j.json()}).then(function (j){var z = j.postal.toString();if(z.length ==== 4){call("0" + z)}else{call(z)}}).catch(function (e){alert("Error fetching zip code: " + e)})
+};
     // Block and block menu descriptions
     var descriptor = {
         blocks: [
             // Block type, block name, function name
-            [' ', 'set zip code to %n', 'setzip','02203'],
+            [' ', 'set zip code to %s', 'setzip','02203'],
+            ['R','get zip code based on IP','getzip'],
             [' ','request weather','request'],
             ['-'],
             ['h','when weather data arrives','when'],
