@@ -47,7 +47,7 @@ return "very fast"
 };
 ext.clouds = function (){return data.clouds.all};
 ext.getzip = function (call){
-fetch("http://ipinfo.io/json").then(function (j){return j.json()}).then(function (j){var z = j.postal.toString();if(z.length ==== 4){call("0" + z)}else{call(z)}}).catch(function (e){alert("Error fetching zip code: " + e)})
+fetch("http://ipinfo.io/json").then(function (j){return j.json()}).then(function (j){var z = j.postal.toString();if(z.length === 4){call("0" + z)}else{call(z)}}).catch(function (e){alert("Error fetching zip code: " + e)})
 };
     // Block and block menu descriptions
     var descriptor = {
