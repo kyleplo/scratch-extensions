@@ -9,18 +9,18 @@
         return {status: 2, msg: 'Ready'};
     };
     ext.shorten = function (url){
-    fetch('http://is.gd/create.php?format=simple&url=' + url + (title.length > 0 ? "&shortUrl=" + title : "")).then(function(response) {
+    fetch('https://is.gd/create.php?format=simple&url=' + url + (title.length > 0 ? "&shortUrl=" + title : "")).then(function(response) {
   return response.text();
 }).then(function(text) {
   shortUrl = text
 });};
 ext.long = function (url,call){
-    fetch('http://is.gd/forward.php?format=simple&shortUrl=' + url).then(function(response) {
+    fetch('https://is.gd/forward.php?format=simple&shortUrl=' + url).then(function(response) {
   return response.text();
 }).then(function(text) {
   call(text)
 });};
-ext.openlong = function (url){if(url.startsWith("https://is.gd/")){location.href = url}};
+ext.openlong = function (url){if(url.startsWith("https://is.gd/") || url.startsWith("http://is.gd/")){location.href = url}else{alert("Failed to open " + url + " because it is not a short URL.")}};
     ext.url = function (){return shortUrl}
     ext.title = function (t){title = t}
     // Block and block menu descriptions
